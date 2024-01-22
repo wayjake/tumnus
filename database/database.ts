@@ -1,29 +1,32 @@
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion } = require('mongodb')
 
-// Replace the placeholder with your Atlas connection string
-const uri = "<connection string>";
+const uri = process.env.mongo_uri
+if (!uri) {
+  throw new Error('Make sure to add your connection string to the .env file')
+}
+const database = process.env.mongo_database
+if (!database) {
+  throw new Error('Make sure to add your database name to the .env file')
+}
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri,  {
-        serverApi: {
-            version: ServerApiVersion.v1,
-            strict: true,
-            deprecationErrors: true,
-        }
-    }
-);
+export const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+})
+
+export const db = client.db(process.env.mongo_database)
 
 async function run() {
   try {
-    // Connect the client to the server (optional starting in v4.7)
-    await client.connect();
-
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+    await client.connect()
+    await client.db('admin').command({ ping: 1 })
+  } catch (err) {}
 }
-run().catch(console.dir);
+
+run().catch(async (err) => {
+  console.error(err)
+  await client.close().then(process.exit(1))
+})
