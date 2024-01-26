@@ -1,0 +1,24 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["name", "description", "schema", "currentVersion", "previousVersions"],
+    "properties": {
+      "name": {
+        "bsonType": "string",
+        "description": "the name of the signal; must be a string and is required"
+      },
+      "description": {
+        "bsonType": "string",
+        "description": "describes what the signal is about; must be a string and is required"
+      },
+      "schema": {
+        "bsonType": "objectId",
+        "description": "a reference to the signal_schema collection; must be an ObjectId and is required"
+      },
+      "version": {
+        "bsonType": "int",
+        "description": "should auto increment; must be an integer and is required"
+      }
+    }
+  }
+}

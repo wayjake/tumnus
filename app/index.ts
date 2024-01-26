@@ -1,4 +1,5 @@
-import { db } from '../database/database'
+// import { db } from '../database/database'
+import { createSignalsCollection } from '../database/init/signals'
 
 async function main() {
   try {
@@ -8,6 +9,8 @@ async function main() {
         throw new Error('Bun is already registered within the registry.')
       }
     */
+
+    /*
     const update = {
       name: 'bun',
       description: 'Lifecycle events from the bun runtime.',
@@ -19,6 +22,8 @@ async function main() {
       .collection('registry')
       .findOneAndUpdate({ name: update.name }, { $set: update }, { upsert: true })
     console.table(registery)
+    */
+    await createSignalsCollection()
   } catch (err) {
     console.error(err)
   }
