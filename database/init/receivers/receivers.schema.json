@@ -1,0 +1,32 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["signals", "description", "version"],
+    "properties": {
+      "signals": {
+        "bsonType": ["array"],
+        "description": "a list of references to signals; must be an array of ObjectIds and is required",
+        "items": {
+          "bsonType": "objectId"
+        }
+      },
+      "description": {
+        "bsonType": "string",
+        "description": "describes what the receiver is about; must be a string and is required"
+      },
+      "version": {
+        "bsonType": "int",
+        "minimum": 0,
+        "description": "the version number of the receiver; must be a non-negative integer and is required"
+      },
+      "createdAt": {
+        "bsonType": "date",
+        "description": "the date and time when the receiver was created"
+      },
+      "updatedAt": {
+        "bsonType": "date",
+        "description": "the date and time when the receiver was last updated"
+      }
+    }
+  }
+}

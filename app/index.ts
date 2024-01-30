@@ -1,5 +1,4 @@
 // import { db } from '../database/database'
-import { createSignalsCollection } from '../database/init/signals'
 
 async function main() {
   try {
@@ -13,7 +12,7 @@ async function main() {
     /*
     const update = {
       name: 'bun',
-      description: 'Lifecycle events from the bun runtime.',
+      description: 'Lifecycle messages from the bun runtime.',
       schema: null,
       currentVersion: 1,
       previousVersions: [],
@@ -23,7 +22,7 @@ async function main() {
       .findOneAndUpdate({ name: update.name }, { $set: update }, { upsert: true })
     console.table(registery)
     */
-    await createSignalsCollection()
+    throw new Error(`this isn't doing anything, yet`)
   } catch (err) {
     console.error(err)
   }

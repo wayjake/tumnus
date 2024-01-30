@@ -1,0 +1,14 @@
+{
+  "name": "database",
+  "module": "database.ts",
+  "type": "module",
+  "scripts": {
+    "initDb": "bun database/init/main.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

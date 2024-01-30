@@ -1,8 +1,8 @@
-import { createSignalsCollection } from './signals'
+import { initCollections } from './initCollections'
 
 async function main() {
   try {
-    await createSignalsCollection()
+    await initCollections()
   } catch (err) {
     console.error(err)
   }

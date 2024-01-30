@@ -1,0 +1,42 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["signalId", "status", "version", "payload", "createdAt", "updatedAt"],
+    "name": "Receiver Messages",
+    "description": "Messages duplicated by the transponder containing the data associated with the originating signal",
+    "properties": {
+      "signalName": {
+        "bsonType": "string",
+        "description": "The name of the parent signal"
+      },
+      "signalId": {
+        "bsonType": "objectId",
+        "description": "Unique identifier of the originating parent signal that triggered this message"
+      },
+      "receiverId": {
+        "bsonType": "objectId",
+        "description": "Unique identifier of the originating receiving that triggered this message"
+      },
+      "status": {
+        "enum": ["new", "processing", "error", "complete"],
+        "description": "Current status of the message, indicating its progress through the processing stages"
+      },
+      "version": {
+        "bsonType": "int",
+        "description": "Version number of the message, indicating iterations or revisions it may have undergone"
+      },
+      "payload": {
+        "bsonType": "object",
+        "description": "Contains the data associated with this message, structured according to the signal's schema"
+      },
+      "createdAt": {
+        "bsonType": "date",
+        "description": "Timestamp of when the message was created"
+      },
+      "updatedAt": {
+        "bsonType": "date",
+        "description": "Timestamp of when the message was last updated"
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import signalsSchema from './signals.schema.json'
-import { db } from '../database'
+import { db } from '../../database'
 
 export async function createSignalsCollection() {
   const collectionName = 'signals'

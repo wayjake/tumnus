@@ -1,0 +1,45 @@
+{
+  "$jsonSchema": {
+    "description": "Signal messages are the actual payload associated with a parent signal; A signal must be created before messages with a matching name can be created.",
+    "bsonType": "object",
+    "required": [
+      "signalId",
+      "signalName",
+      "status",
+      "version",
+      "payload",
+      "createdAt",
+      "updatedAt"
+    ],
+    "properties": {
+      "signalId": {
+        "bsonType": "objectId",
+        "description": "The ObjectId reference to the parent signal"
+      },
+      "signalName": {
+        "bsonType": "string",
+        "description": "The name of the parent signal"
+      },
+      "status": {
+        "enum": ["new", "processing", "error", "complete"],
+        "description": "The current status of the signal message; must be one of the specified string values and is required"
+      },
+      "version": {
+        "bsonType": "int",
+        "description": "The version number of the signal message; must be an integer and is required"
+      },
+      "payload": {
+        "bsonType": "object",
+        "description": "The protobuf payload of the signal message; must be an object and is required"
+      },
+      "createdAt": {
+        "bsonType": "date",
+        "description": "The date and time when the signal message was created"
+      },
+      "updatedAt": {
+        "bsonType": "date",
+        "description": "The date and time when the signal message was last updated"
+      }
+    }
+  }
+}

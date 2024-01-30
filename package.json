@@ -1,19 +1,9 @@
 {
-  "name": "tumnus",
-  "module": "index.ts",
-  "type": "module",
-  "scripts": {
-    "start": "bun app/index.ts",
-    "dev": "bun --watch app/index.ts",
-    "initDb": "bun database/init/main.ts"
-  },
-  "devDependencies": {
-    "bun-types": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "mongodb": "^6.3.0"
-  }
+  "name": "tnmus-mono-repo",
+  "version": "1.0.0",
+  "workspaces": [
+    "api",
+    "app",
+    "database"
+  ]
 }

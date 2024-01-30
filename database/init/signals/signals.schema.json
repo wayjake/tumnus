@@ -1,6 +1,8 @@
 {
   "$jsonSchema": {
     "bsonType": "object",
+    "title": "Signal",
+    "description": "A signal is the singal message that gets duplicated for any downstream receivers",
     "required": ["name", "description", "schema", "currentVersion", "previousVersions"],
     "properties": {
       "name": {
@@ -13,11 +15,19 @@
       },
       "schema": {
         "bsonType": "objectId",
-        "description": "a reference to the signal_schema collection; must be an ObjectId and is required"
+        "description": "a reference to the signal-schema collection; must be an ObjectId and is required"
       },
       "version": {
         "bsonType": "int",
         "description": "should auto increment; must be an integer and is required"
+      },
+      "createdAt": {
+        "bsonType": "date",
+        "description": "the date and time when the receiver was created"
+      },
+      "updatedAt": {
+        "bsonType": "date",
+        "description": "the date and time when the receiver was last updated"
       }
     }
   }
